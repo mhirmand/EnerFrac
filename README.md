@@ -1,2 +1,2 @@
 # EnerFrac
-Non-differentiable energy minimization algorithm for cohesive fracture 
+Non-differentiable energy minimization  for cohesive fracture 
