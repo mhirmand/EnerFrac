@@ -1,0 +1,70 @@
+EFEP *** Demo imput file: Taylor Bar
+! a copper cylinder impact a rigid plane
+! 861 nodes; 640 elements
+! Unit: mm g N ms MPa
+
+NBNO 12      ! Total number of nodes
+NBEL 2      ! Total number of elements
+NMAT   1      ! Total number of material sets
+NCOMp  1      ! Total number of bodies
+ENDTime 20.0  ! Simulation terminate time 
+DTSCale 0.5   ! Scale for time step size
+OUTT 1.0   ! Results output time interval
+REPO 0.5   ! Status report interval
+HOURglass 2 0.20   !  Hourglass control method and parameters
+JAUM on            !  Jaumann rate of stress activated
+
+
+CURV engk     ! Write time history of kinematic energy
+CURV engs     ! Write time history of strain energy
+CURV ener     ! Write time history of total energy
+CURV seqv     ! Write Von Mises stress time history of element 1
+
+! RIGIdplane 3 0.0  ! Define a rigid wall at z = 0.0
+
+MATErial
+!  num  mtype  density  young's   Poisson  Yield0 TanMod   sigma_c  G_c
+     1   plf2   2.45d-3   32.0d3    0.2d0   50.0      20.0     500    3.0d1
+!      1   elsf   2.45d-3   32.0d3    0.2d0   500    3.0d1
+
+NODE
+!     n   comp              x                 y                z
+1	1	0	0	0
+2	1	50	0	0
+3	1	50	50	0
+4	1	0	50	0
+5	1	0	0	50
+6	1	50	0	50
+7	1	50	50	50
+8	1	0	50	50
+9	1	100	0	0
+10	1	100	50	0
+11	1	100	0	50
+12	1	100	50	50
+	  
+ELEMent
+!   n     mat  type   n1      n2      n3      n4      n5      n6      n7      n8
+	1	  1	   3	     1	2	3	4	5	6	7	8
+	2	  1    3	     2	9	10	3	6	11	12	7
+     
+VELO
+  node   1  1   0.0d0     ! set initial velocity for all nodes in the first body
+  node   4  1   0.0d0     
+  node   5  1   0.0d0     
+  node   8  1   0.0d0     
+  node   9  1   -1.0d-1    ! set initial velocity for all nodes in the first body
+  node   10 1   -1.0d-1   
+  node   11 1   -1.0d-1    
+  node   12 1   -1.0d-1      
+endv
+
+!TIME 2
+!0.0  1.0
+!0.03 1.0
+
+!LOAD
+!   comp  1    0.0 0.0 -5.0
+!endl
+   
+ENDI
+
