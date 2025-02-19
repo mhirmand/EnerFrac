@@ -11,4 +11,4 @@ Fortran implementation of Non-differentiable energy minimization  for cohesive f
   publisher={Elsevier}
 }
 ```
-This implementation is still in progress!
+This implementation is still in progress! Code currently does not work.
