@@ -1,4 +1,4 @@
-# EnerFrac
+# Non-Differentiable Energy Minimization for Dynamic Brittle Fracture
 Fortran implementation of Non-differentiable energy minimization  for cohesive fracture proposed in
 
 ```@article{hirmand2019block,
